@@ -7,7 +7,6 @@
 
     <link rel="icon" href="https://ethereal.li/favicon.ico">
 
-
     <title>Ethereal – Your Ideas, Reimagined Beautifully</title>
 
     <meta name="description"
@@ -40,25 +39,31 @@
             font-family: 'Josefin Sans', sans-serif;
         }
 
-        /* COSMIC BACKGROUND */
+        /* IMAGE BACKGROUND */
         .cosmic-bg {
             position: fixed;
-            inset: -20%;
+            inset: 0;
             z-index: -2;
+
             background:
-                radial-gradient(circle at 30% 20%, rgba(120, 60, 255, 0.25), transparent 40%),
-                radial-gradient(circle at 70% 60%, rgba(60, 180, 255, 0.18), transparent 45%),
-                #000;
-            animation: cosmicDrift 90s ease-in-out infinite alternate;
+                radial-gradient(circle at 30% 20%, rgba(80, 120, 255, 0.18), transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(60, 200, 255, 0.12), transparent 45%),
+                url("https://ethereal.li/wall.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            animation: slowFloat 120s ease-in-out infinite alternate;
         }
 
-        @keyframes cosmicDrift {
+        @keyframes slowFloat {
             from {
-                transform: translate(0, 0) scale(1);
+                transform: scale(1) translate(0, 0);
             }
 
             to {
-                transform: translate(-4%, -3%) scale(1.05);
+                transform: scale(1.05) translate(-2%, -2%);
             }
         }
 
@@ -135,6 +140,19 @@
         .angular-logo:hover {
             filter: drop-shadow(0 0 14px rgba(96, 165, 250, 0.9));
         }
+
+        /* DARK OVERLAY FOR READABILITY */
+        .bg-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+
+            background:
+                radial-gradient(circle at center, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
+
+            backdrop-filter: blur(2px);
+        }
     </style>
 </head>
 
@@ -142,10 +160,12 @@
 
     <!-- BACKGROUND -->
     <div class="cosmic-bg"></div>
+    <div class="bg-overlay"></div>
     <div class="stars" id="stars"></div>
 
     <!-- MAIN CONTENT -->
-    <main class="relative z-10 text-white text-center px-6 pt-40 pb-40">
+    <main class="relative z-10 text-white text-center px-6 pt-40 pb-40 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+
         <div class="max-w-3xl mx-auto">
 
             <h1 class="heading-font text-6xl md:text-8xl font-thin tracking-[0.25em]">
@@ -163,16 +183,13 @@
 
                 <!-- LOGOS -->
                 <div class="flex justify-center gap-10 opacity-90">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg"
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg"
                         class="h-10 tech-logo" />
 
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
                         class="h-12 tech-logo angular-logo" />
 
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
                         class="h-10 tech-logo" />
                 </div>
 
@@ -221,7 +238,7 @@
     <!-- STAR GENERATION -->
     <script defer>
         const stars = document.getElementById("stars");
-        const starCount = 80;
+        const starCount = 30;
 
         for (let i = 0; i < starCount; i++) {
             const s = document.createElement("div");
