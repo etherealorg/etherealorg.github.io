@@ -176,6 +176,89 @@
           transparent);
       position: absolute;
     }
+
+    /* ROADMAP */
+    .roadmap {
+      position: relative;
+      padding: 40px 0;
+    }
+
+    .roadmap-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, #00e1ff, transparent);
+      transform: translateX(-50%);
+      box-shadow: 0 0 20px #00e1ff80;
+    }
+
+    .roadmap-item {
+      position: relative;
+      width: 50%;
+      padding: 40px 40px;
+    }
+
+    .roadmap-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .roadmap-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .roadmap-content {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+
+
+    /* Timeline dots */
+    .roadmap-item::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      width: 14px;
+      height: 14px;
+      background: #00e1ff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00e1ff;
+      z-index: 2;
+    }
+
+    .roadmap-item.left::before {
+      right: -7px;
+    }
+
+    .roadmap-item.right::before {
+      left: -7px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .roadmap-line {
+        left: 8px;
+      }
+
+      .roadmap-item {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 0;
+        text-align: left !important;
+        left: 0 !important;
+      }
+
+      .roadmap-item::before {
+        left: 0 !important;
+      }
+    }
   </style>
 </head>
 
@@ -222,7 +305,6 @@
           Experts in enterprise-grade web applications using Angular, .NET Core, and SQL Server.
         </p>
 
-
         <div class="mt-20 flex justify-center">
           <a href="mailto:hello@ethereal.li" class="mail-button body-font">
             <div class="mail-blob"></div>
@@ -232,6 +314,112 @@
             </div>
           </a>
         </div>
+
+
+
+        <!-- ENTERPRISE ROADMAP -->
+        <div class="mt-40">
+          <p class="body-font text-sm uppercase tracking-widest text-gray-300 mb-16">
+            Enterprise Delivery Roadmap
+          </p>
+
+          <div class="roadmap relative max-w-5xl mx-auto">
+
+            <div class="roadmap-line"></div>
+
+            <!-- Phase 1 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <h3 class="heading-font text-lg tracking-widest mb-2">
+                  Phase 01 — Secure Architecture Design
+                </h3>
+                <ul class="body-font text-gray-400 text-sm space-y-2">
+                  <li>• Microservice / Modular architecture planning</li>
+                  <li>• Role-Based Access Control (RBAC)</li>
+                  <li>• Database normalization & indexing strategy</li>
+                  <li>• API contract definition (REST / JSON)</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <h3 class="heading-font text-lg tracking-widest mb-2">
+                  Phase 02 — Encrypted Communication Layer
+                </h3>
+                <ul class="body-font text-gray-400 text-sm space-y-2">
+                  <li>• HTTPS (TLS 1.3 enforced)</li>
+                  <li>• Encrypted request/response payloads</li>
+                  <li>• JWT-based authentication</li>
+                  <li>• Secure API Gateway configuration</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <h3 class="heading-font text-lg tracking-widest mb-2">
+                  Phase 03 — Core Application Development
+                </h3>
+                <ul class="body-font text-gray-400 text-sm space-y-2">
+                  <li>• Angular enterprise frontend</li>
+                  <li>• .NET Core REST APIs</li>
+                  <li>• SQL Server optimized queries</li>
+                  <li>• Transaction-level validation</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <h3 class="heading-font text-lg tracking-widest mb-2">
+                  Phase 04 — Reporting & Analytics Engine
+                </h3>
+                <ul class="body-font text-gray-400 text-sm space-y-2">
+                  <li>• Real-time dashboard metrics</li>
+                  <li>• Dynamic filtering & export (PDF/Excel)</li>
+                  <li>• Scheduled automated reports</li>
+                  <li>• Performance-optimized stored procedures</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div class="roadmap-item left">
+              <div class="roadmap-content">
+                <h3 class="heading-font text-lg tracking-widest mb-2">
+                  Phase 05 — Security Hardening & Monitoring
+                </h3>
+                <ul class="body-font text-gray-400 text-sm space-y-2">
+                  <li>• API rate limiting</li>
+                  <li>• Input sanitization & validation</li>
+                  <li>• Error logging & centralized monitoring</li>
+                  <li>• Audit trail system</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Phase 6 -->
+            <div class="roadmap-item right">
+              <div class="roadmap-content">
+                <h3 class="heading-font text-lg tracking-widest mb-2">
+                  Phase 06 — Deployment & CI/CD
+                </h3>
+                <ul class="body-font text-gray-400 text-sm space-y-2">
+                  <li>• Dockerized environments</li>
+                  <li>• Automated CI/CD pipeline</li>
+                  <li>• Cloud deployment (Azure / AWS)</li>
+                  <li>• Post-deployment monitoring & scaling</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
 
 
 
