@@ -26,19 +26,69 @@
       font-family: 'Raleway', sans-serif;
     }
 
-    .btn-enterprise {
-      padding: 14px 32px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.03);
-      letter-spacing: 0.12em;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
+  
+    .mail-button {
+      cursor: pointer;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      border-radius: 16px;
+      border: none;
+      padding: 2px;
+      text-decoration: none;
+      display: inline-block;
+      background: radial-gradient(circle 80px at 80% -10%, #ffffff, #181b1b);
+      position: relative;
     }
 
-    .btn-enterprise:hover {
-      border-color: rgba(255,255,255,0.4);
-      transform: translateY(-2px);
+    .mail-button::after {
+      content: "";
+      position: absolute;
+      width: 65%;
+      height: 60%;
+      border-radius: 120px;
+      top: 0;
+      right: 0;
+      box-shadow: 0 0 25px #ffffff38;
+      z-index: -1;
+    }
+
+    .mail-blob {
+      position: absolute;
+      width: 70px;
+      height: 100%;
+      border-radius: 16px;
+      bottom: 0;
+      left: 0;
+      background: radial-gradient(circle 60px at 0% 100%,
+          #3fe9ff,
+          #0000ff80,
+          transparent);
+      box-shadow: -10px 10px 30px #0051ff2d;
+    }
+    
+     .mail-inner {
+      padding: 14px 28px;
+      border-radius: 14px;
+      color: #fff;
+      position: relative;
+      background: radial-gradient(circle 80px at 80% -50%, #777777, #0f1111);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mail-inner::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 14px;
+      background: radial-gradient(circle 60px at 0% 100%,
+          #00e1ff1a,
+          #0000ff11,
+          transparent);
+      position: absolute;
     }
   </style>
 </head>
@@ -71,11 +121,15 @@
       Let’s guide you back to the main experience.
     </p>
 
-    <div class="mt-12">
-      <a href="https://ethereal.li/" class="btn-enterprise">
-        RETURN TO HOMEPAGE
-      </a>
-    </div>
+ 
+     <div class="mt-12">
+            <a href="https://ethereal.li/" class="mail-button body-font">
+              <div class="mail-blob"></div>
+              <div class="mail-inner">
+                RETURN TO HOMEPAGE
+              </div>
+            </a>
+          </div>
 
   </main>
 
